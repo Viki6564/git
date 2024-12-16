@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'app.js'),
+  entry: path.join(__dirname, './js/app.js'),
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'app.[contenthash:8].js',
@@ -45,7 +45,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'index.html'),
+      template: path.join(__dirname, 'index.html'),
       filename: 'index.html',
     }),
     new FileManagerPlugin({
@@ -56,7 +56,7 @@ module.exports = {
         onEnd: {
           copy: [
             {
-              source: path.join('src', 'static'),
+              source: path.join('static'),
               destination: 'dist',
             },
           ],
@@ -68,7 +68,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    watchFiles: path.join(__dirname, 'src'),
+    watchFiles: path.join(__dirname, 'login'),
     port: 9000,
   },
   optimization: {
